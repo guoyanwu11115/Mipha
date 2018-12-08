@@ -115,14 +115,10 @@
                         })
 
                         $("#jsonText3").html(data);
-                    },
-                    error:function () {
-
                     }
-
                 });
             });
-            //2.1
+            //2.2
             $("#javaObj2jsonObj").click(function () {
                 var type = document.getElementById("javaObj2jsonObj").value;
                 alert(type);
@@ -137,7 +133,36 @@
                     }
                 });
             });
-
+            //2.3
+            $("#jsonObj2javaList").click(function () {
+                var type = document.getElementById("jsonObj2javaList").value;
+                var jsonStr = $("#jsonStr1").val();
+                $.ajax({
+                    url:"studyJson.html",
+                    data:{type:type,jsonStr:jsonStr},
+                    type:"post",
+                    dataType:"json",
+                    success:function (data) {
+                        alert(data);
+                        $("#jsonText3").html(JSON.stringify(data));
+                    }
+                });
+            });
+            //2.4
+            $("#jsonObj2javaObj").click(function () {
+                var type = document.getElementById("jsonObj2javaObj").value;
+                var jsonStr = $("#jsonStr2").val();
+                $.ajax({
+                    url:"studyJson.html",
+                    data:{type:type,jsonStr:jsonStr},
+                    type:"post",
+                    dataType:"json",
+                    success:function (data) {
+                        alert(data);
+                        $("#jsonText3").html(JSON.stringify(data));
+                    }
+                });
+            });
         });
         function add(obj) {
             obj.sex="man";
@@ -159,7 +184,7 @@
         <tr>
             <td>
                 <p>Json对象及其操作</p>
-                <textarea id="jsonText" rows="10" cols="90" >
+                <textarea id="jsonText" rows="10" cols="100" >
                     {
                     "1":"value1",
                     "2":"value2",
@@ -182,7 +207,7 @@
         <tr>
             <td>
                 <p>一.Json对象与Json字符串的转化、JSON字符串与Java对象的转换 </p>
-                <textarea id="jsonText2" rows="15" cols="120" >
+                <textarea id="jsonText2" rows="15" cols="100" >
                     //json对象
                     var a = {
                             "1":"value1",
@@ -227,13 +252,21 @@
         <tr>
             <td>
                 <p>二.JSON字符串与Java对象的转换 </p>
-                <textarea id="jsonText3" rows="8" cols="50">
+                <textarea id="jsonText3" rows="8" cols="100">
 
-                    </textarea>
+                </textarea>
             </td>
         </tr>
         <tr>
-            <td>1. 把java 对象列表转换为json对象数组，并转为字符串</td>
+            <td>1. 把java 对象list >> 为json对象数组[]</td>
+        </tr>
+        <tr>
+            <td>
+                <textarea rows="4" cols="100">
+                    //方法：
+                    JSONArray jsonArray = JSONArray.fromObject(list);
+                </textarea>
+            </td>
         </tr>
         <tr>
             <td>
@@ -241,11 +274,73 @@
             </td>
         </tr>
         <tr>
-            <td>2. 把java 对象列表转换为json对象</td>
+            <td>2. 把java 对象列表 >> 为json对象</td>
+        </tr>
+        <tr>
+            <td>
+                <textarea rows="4" cols="100">
+                    //方法：
+                    JSONObject jsonObject = JSONObject.fromObject(userinfo);
+                </textarea>
+            </td>
         </tr>
         <tr>
             <td>
                 <input type="button" id="javaObj2jsonObj" value="javaObj2jsonObj">
+            </td>
+        </tr>
+        <tr>
+            <td>3. 把json对象[{},{}] >> 为java对象list</td>
+        </tr>
+        <tr>
+            <td>
+                <span>
+                    <textarea id="jsonStr1" rows="8" cols="100">
+                        [{"admin":false,"avatar":"","delFlag":"","deptId":0,"email":"","loginDate":null,"loginIp":"","loginName":"zuzep","parentId":0,"password":"zuzep","phonenumber":"","salt":"","sex":"","status":"","userId":111111,"userName":"祖"},
+                        {"admin":false,"avatar":"","delFlag":"","deptId":0,"email":"","loginDate":null,"loginIp":"","loginName":"mahaoxi","parentId":0,"password":"mahaoxi","phonenumber":"","salt":"","sex":"","status":"","userId":222222,"userName":"马"}]
+                    </textarea>
+                </span>
+                >>
+                <span>
+                    <textarea rows="8" cols="60">
+                        //方法：
+                        JSONArray json = JSONArray.fromObject(jsonStr);
+                        List userList = (List)JSONArray.toCollection(json,Userinfo.class);
+                    </textarea>
+                </span>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="button" id="jsonObj2javaList" value="jsonObj2javaList">
+            </td>
+        </tr>
+
+        <tr>
+            <td>4. 把json对象[{}] >> 为java对象</td>
+        </tr>
+        <tr>
+            <td>
+                <span>
+                    <textarea id="jsonStr2" rows="8" cols="100">
+                        {"admin":false,"avatar":"","delFlag":"","deptId":0,"email":"","loginDate":null,"loginIp":"","loginName":"zhangminghui","parentId":0,"password":"zhang3","phonenumber":"","salt":"","sex":"","status":"","userId":333333,"userName":"张"}
+                    </textarea>
+                </span>
+                >>
+                <span>
+                    <textarea rows="8" cols="60">
+                        //方法：
+                        JSONObject json = JSONObject.fromObject(jsonStr);
+                        Userinfo user = (Userinfo) JSONObject.toBean(json,Userinfo.class);
+                    </textarea>
+                </span>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="button" id="jsonObj2javaObj" value="jsonObj2javaObj">
             </td>
         </tr>
     </table>

@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 @Controller
@@ -27,6 +28,7 @@ public class JsonController {
         list.add("CNDATA");
         list.add(5);
         list.add(new Userinfo(111111L,"zuzep","祖","zuzep"));
+        list.add(new Userinfo(222222L,"mahaoxi","马","mahaoxi"));
         if ("java2json".equals(type)) {
             JSONArray jsonArray = JSONArray.fromObject(list);
             System.out.println(jsonArray);
@@ -38,6 +40,25 @@ public class JsonController {
             JSONObject jsonObject = JSONObject.fromObject(userinfo);
             System.out.println(jsonObject);
             out.print(jsonObject);
+        }
+        //3 javaObj >> jsonList
+        String jsonStr = request.getParameter("jsonStr");
+        System.out.println("json字符串:"+jsonStr);
+        if ("jsonObj2javaList".equals(type)) {
+                JSONArray json = JSONArray.fromObject(jsonStr);
+                List userList = (List)JSONArray.toCollection(json,Userinfo.class);
+                if(!userList.isEmpty()){
+                    for(Iterator itr = userList.iterator();itr.hasNext();){
+                        Userinfo user = (Userinfo)itr.next();
+                        System.out.println(user.toString());
+                    }
+                }
+        }
+        //4 javaObj >> jsonObj
+        if ("jsonObj2javaObj".equals(type)) {
+            JSONObject json = JSONObject.fromObject(jsonStr);
+            Userinfo user = (Userinfo) JSONObject.toBean(json,Userinfo.class);
+            System.out.println(user.toString());
         }
 
     }
