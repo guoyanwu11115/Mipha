@@ -2,6 +2,7 @@ package com.miphalink.unity.controller;
 
 import com.miphalink.unity.domain.Userinfo;
 import net.sf.json.JSONArray;
+import net.sf.json.JSONObject;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -21,6 +22,7 @@ public class JsonController {
         String type = request.getParameter("type");
         System.out.println("转换类型type:"+type);
         PrintWriter out = response.getWriter();
+        //1.List >> jsonArray
         List list = new ArrayList();
         list.add("CNDATA");
         list.add(5);
@@ -30,5 +32,13 @@ public class JsonController {
             System.out.println(jsonArray);
             out.print(jsonArray);
         }
+        //2 javaObj >> jsonObj
+        Userinfo userinfo = new Userinfo(111111L,"mayun","马云","mayun");
+        if ("javaObj2jsonObj".equals(type)) {
+            JSONObject jsonObject = JSONObject.fromObject(userinfo);
+            System.out.println(jsonObject);
+            out.print(jsonObject);
+        }
+
     }
 }

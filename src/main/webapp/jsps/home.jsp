@@ -98,6 +98,7 @@
                 alert(b2json.person[1].name);
             });
             //二 json对象与java对象来相互转换
+            //2.1
             $("#java2json").click(function () {
                 var type = document.getElementById("java2json").value;
                 alert(type);
@@ -119,6 +120,21 @@
 
                     }
 
+                });
+            });
+            //2.1
+            $("#javaObj2jsonObj").click(function () {
+                var type = document.getElementById("javaObj2jsonObj").value;
+                alert(type);
+                $.ajax({
+                    url:"studyJson.html",
+                    data:{type:type},
+                    type:"post",
+                    dataType:"json",
+                    success:function (data) {
+                        alert(data);
+                        $("#jsonText3").html(JSON.stringify(data));
+                    }
                 });
             });
 
@@ -222,6 +238,14 @@
         <tr>
             <td>
                 <input type="button" id="java2json" value="java2json">
+            </td>
+        </tr>
+        <tr>
+            <td>2. 把java 对象列表转换为json对象</td>
+        </tr>
+        <tr>
+            <td>
+                <input type="button" id="javaObj2jsonObj" value="javaObj2jsonObj">
             </td>
         </tr>
     </table>
