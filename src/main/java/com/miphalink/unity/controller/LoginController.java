@@ -60,8 +60,6 @@ public class LoginController {
         String name = request.getParameter("name");
         String password = request.getParameter("password");
         JSONObject jsonObject = JSONObject.fromObject(AjaxResult.error());
-        Map map = new HashMap();
-        System.out.println("login:"+name+"|"+password);
         if (StringUtils.isNotEmpty(name) && StringUtils.isNotEmpty(password)){
             Userinfo userinfo = userService.getByNameAndPassword(name,password);
             if(userinfo!=null){
@@ -70,7 +68,7 @@ public class LoginController {
             }
 
         }
-        System.out.println(jsonObject);
+        //System.out.println(jsonObject);
         request.getSession().setAttribute("name",name);
         request.getSession().setAttribute("password",password);
         PrintWriter out = response.getWriter();
@@ -120,12 +118,7 @@ public class LoginController {
 
     }
 
-    @RequestMapping("index")
-    public String index(HttpServletRequest request, HttpServletResponse response) {
-        System.out.println("index:");
 
-        return "home";
-    }
 
 
 }

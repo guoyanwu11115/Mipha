@@ -6,6 +6,7 @@
     <result property="deptId"       column="dept_id"      />
     <result property="loginName"    column="login_name"   />
     <result property="userName"     column="user_name"    />
+    <!--<result property="userType"     column="user_type"    />-->
     <result property="email"        column="email"        />
     <result property="phonenumber"  column="phonenumber"  />
     <result property="sex"          column="sex"          />

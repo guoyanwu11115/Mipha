@@ -1,0 +1,31 @@
+/*自定义ico图标*/
+/*首页*/
+.icon-defined-home{
+    background:url('icons/defined-home.png') no-repeat center center;
+}
+/*system*/
+.icon-defined-system{
+    background:url('icons/defined-system.png') no-repeat center center;
+}
+/*monitor*/
+.icon-defined-monitor{
+    background:url('icons/defined-monitor.png') no-repeat center center;
+}
+/*monitor*/
+.icon-defined-tool{
+    background:url('icons/defined-tool.png') no-repeat center center;
+}
+/*java*/
+.icon-defined-java{
+    background:url('icons/defined-java.png') no-repeat center center;
+}
+/*javascript*/
+.icon-defined-javascript{
+    background:url('icons/defined-javascript.png') no-repeat center center;
+}
+
+/*log*/
+.icon-defined-log{
+    background:url('icons/defined-log.png') no-repeat center center;
+}
+

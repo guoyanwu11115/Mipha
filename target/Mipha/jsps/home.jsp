@@ -6,10 +6,14 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%
+    String path = request.getContextPath();
+%>
 <html>
 <head>
     <title>主页</title>
-    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="component/easyui/themes/icon-defined.css">
+    <script type="text/javascript" src="../js/jquery.min.js"></script>
     <script type="text/javascript">
         // var obj = {
         //     1:"value1",
@@ -98,12 +102,12 @@
                 alert(b2json.person[1].name);
             });
             //二 json对象与java对象来相互转换
-            //2.1
+            //2.1 java对象List >> jsonArray
             $("#java2json").click(function () {
                 var type = document.getElementById("java2json").value;
                 alert(type);
                 $.ajax({
-                    url:"studyJson.html",
+                    url:"<%=path%>/studyJson.html",
                     data:{type:type},
                     type:"post",
                     dataType:"json",
@@ -123,7 +127,7 @@
                 var type = document.getElementById("javaObj2jsonObj").value;
                 alert(type);
                 $.ajax({
-                    url:"studyJson.html",
+                    url:"<%=path%>/studyJson.html",
                     data:{type:type},
                     type:"post",
                     dataType:"json",
@@ -138,7 +142,7 @@
                 var type = document.getElementById("jsonObj2javaList").value;
                 var jsonStr = $("#jsonStr1").val();
                 $.ajax({
-                    url:"studyJson.html",
+                    url:"<%=path%>/studyJson.html",
                     data:{type:type,jsonStr:jsonStr},
                     type:"post",
                     dataType:"json",
@@ -153,7 +157,7 @@
                 var type = document.getElementById("jsonObj2javaObj").value;
                 var jsonStr = $("#jsonStr2").val();
                 $.ajax({
-                    url:"studyJson.html",
+                    url:"<%=path%>/studyJson.html",
                     data:{type:type,jsonStr:jsonStr},
                     type:"post",
                     dataType:"json",
@@ -178,6 +182,7 @@
 <body>
 <p>${name}</p>
 <p>${password}</p>
+
 <fieldset>
     <legend>Json</legend>
     <table>

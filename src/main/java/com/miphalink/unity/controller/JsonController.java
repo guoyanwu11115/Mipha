@@ -21,7 +21,13 @@ public class JsonController {
     @RequestMapping("studyJson")
     public void JavaAndJson(HttpServletRequest request, HttpServletResponse response) throws IOException {
         String type = request.getParameter("type");
-        System.out.println("转换类型type:"+type);
+        System.out.println("path:"+request.getServletPath());
+        System.out.println("转换类型type:"+request.getContextPath());
+        String path = request.getScheme()+"//"+request.getServerName()+":"+request.getServerPort()+request.getContextPath();
+        StringBuffer Url = request.getRequestURL();
+        String Uri = request.getRequestURI();
+        String servletPaht = request.getServletPath();
+
         PrintWriter out = response.getWriter();
         //1.List >> jsonArray
         List list = new ArrayList();
@@ -54,7 +60,7 @@ public class JsonController {
                     }
                 }
         }
-        //4 javaObj >> jsonObj
+        //4 jsonObj >> javaObj
         if ("jsonObj2javaObj".equals(type)) {
             JSONObject json = JSONObject.fromObject(jsonStr);
             Userinfo user = (Userinfo) JSONObject.toBean(json,Userinfo.class);
