@@ -9,13 +9,15 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+
+
 @Service
 public class MenuServiceImpl implements MenuService {
 
     @Autowired
     private MenuMapper menuMapper;
 
-    @Override
+
     public List getMenuByUser() {
         List<Menu> menuList = new ArrayList<Menu>();
         menuList = menuMapper.selectMenuNormalAll();
