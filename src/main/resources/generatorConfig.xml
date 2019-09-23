@@ -23,7 +23,7 @@
             <property name="forceBigDecimals" value="false" />
         </javaTypeResolver>
         <!-- 生成模型(PO)的包名和位置 -->
-        <javaModelGenerator targetPackage="com.miphalink.unity.domain"
+        <javaModelGenerator targetPackage="com.miphalink.unity.project.system.user.domain"
                             targetProject="src/main/java">
             <!-- enableSubPackages:是否让schema作为包的后缀 -->
             <property name="enableSubPackages" value="false" />
@@ -32,7 +32,7 @@
         </javaModelGenerator>
 
         <!-- 生成映射文件的包名和位置  mapper.xml-->
-        <sqlMapGenerator targetPackage="com.miphalink.unity.mapper"
+        <sqlMapGenerator targetPackage="com.miphalink.unity.project.system.user.mapper"
                          targetProject="src/main/java">
             <!-- enableSubPackages:是否让schema作为包的后缀 -->
             <property name="enableSubPackages" value="false" />
@@ -40,7 +40,7 @@
 
         <!-- 生成DAO的包名和位置-->
         <javaClientGenerator type="XMLMAPPER"
-                             targetPackage="com.miphalink.unity.dao"
+                             targetPackage="com.miphalink.unity.project.system.user.dao"
                              targetProject="src/main/java">
             <!-- enableSubPackages:是否让schema作为包的后缀 -->
             <property name="enableSubPackages" value="false" />

@@ -7,7 +7,10 @@
   <groupId>com.miphalink</groupId>
   <artifactId>Mipha</artifactId>
   <version>1.0-SNAPSHOT</version>
-  <packaging>war</packaging>
+    <modules>
+        <module>Mipha1</module>
+    </modules>
+    <packaging>pom</packaging>
 
   <name>Mipha Maven Webapp</name>
   <!-- FIXME change it to the project's website -->

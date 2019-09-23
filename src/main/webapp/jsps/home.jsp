@@ -12,7 +12,7 @@
 <html>
 <head>
     <title>主页</title>
-    <link rel="stylesheet" type="text/css" href="component/easyui/themes/icon-defined.css">
+    <link rel="stylesheet" type="text/css" href="<%=path%>/component/easyui/themes/icon-defined.css">
     <script type="text/javascript" src="../js/jquery.min.js"></script>
     <script type="text/javascript">
         // var obj = {
@@ -182,6 +182,9 @@
 <body>
 <p>${name}</p>
 <p>${password}</p>
+<label>
+    <a href="../jsps/easyuiDemo/combobox/basic.jsp">select</a>
+</label>
 
 <fieldset>
     <legend>Json</legend>

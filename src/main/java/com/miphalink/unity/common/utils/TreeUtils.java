@@ -1,6 +1,6 @@
 package com.miphalink.unity.common.utils;
 
-import com.miphalink.unity.domain.Menu;
+import com.miphalink.unity.project.system.user.domain.Menu;
 
 import java.util.*;
 
@@ -92,14 +92,15 @@ public class TreeUtils {
             map.put("menuId",menu.getMenuId());   //menuId:menuId
             map.put("text", menu.getMenuName());  //  text:menuName
             map.put("iconCls", menu.getIcon());  //iconCls:icon
+            map.put("url",menu.getUrl()); //add 20190319
             //目录
             if("M".equals(menu.getMenuType())){
                 //一级菜单
                 if (0 == menu.getParentId()){
                     map.put("state", "");  //目录状态：open,closed
                 }
-                if (menu.haschild()){
-                    map.put("children", menuList2MapList(menu.getChildren())); //递归。。子节点
+                if (hasChild(list,map)){
+                    map.put("children", menuList2MapList(getChild(list,map))); //递归。。子节点
                 }
             }
             mapList.add(map);

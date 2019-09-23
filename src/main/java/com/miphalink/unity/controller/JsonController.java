@@ -1,6 +1,6 @@
 package com.miphalink.unity.controller;
 
-import com.miphalink.unity.domain.Userinfo;
+import com.miphalink.unity.project.system.user.domain.Userinfo;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 import org.springframework.stereotype.Controller;

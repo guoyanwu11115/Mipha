@@ -26,6 +26,7 @@
   <filter-mapping>
     <filter-name>encodingFilter</filter-name>
     <url-pattern>/*</url-pattern>
+    <dispatcher>ASYNC</dispatcher> <!-- add 20190321 -->
   </filter-mapping>
 
   <servlet>
@@ -36,6 +37,7 @@
       <param-name>contextConfigLocation</param-name>
       <param-value>/WEB-INF/springMvc-servlet.xml</param-value>
     </init-param>
+    <async-supported>true</async-supported>  <!-- add 20190321 -->
   </servlet>
   <servlet-mapping>
     <servlet-name>dispatcher</servlet-name>

@@ -6,6 +6,9 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%
+    String path = request.getContextPath();
+%>
 <html>
     <head>
         <meta charset="UTF-8">
@@ -66,14 +69,15 @@
             }
         });
     });
+
     //打开标签页
     function onSideMenuSelect(item) {
         if (!$('#mainTab').tabs('exists', item.text)) {
             $('#mainTab').tabs('add', {
                 title: item.text,
-                content: '<iframe scrolling="auto" frameborder="0"  src="' + item.url + '" style="width:100%;height:99%;"></iframe>',
+                content: '<iframe scrolling="auto" frameborder="0"  src="' + '<%=path%>'+item.url + '" style="width:100%;height:99%;"></iframe>',
                 closable: true,
-                icon: item.iconCls,
+                icon: '',  //(打开菜单，标签页不显示tab的图标  item.iconCls)
                 id: item.id
             });
         } else {
@@ -156,30 +160,6 @@
         }
     }
 
-    function onWestCollapse() {
-        var opts = $('#LeftMenu').sidemenu('options');
-        if (opts.collapsed != 'collapse') {
-            $('#LeftMenu').sidemenu('collapse');
-            $('#LeftMenu').sidemenu('resize', {
-                width: 40
-            });
-        }
-    }
-
-    function onWestExpand() {
-        var opts = $('#LeftMenu').sidemenu('options');
-        if (opts.collapsed != 'expand') {
-            $('#LeftMenu').sidemenu('expand');
-            $('#LeftMenu').sidemenu('resize', {
-                width: 200
-            });
-        }
-    }
-
-
-
-
-
     function changeMenuSelect(menus, opts, selectId) {
         var menutrees = menus.find(".sidemenu-tree");
         menutrees.each(function () {
@@ -210,5 +190,25 @@
         }
 
         changeMenuSelect(menuItem);
+    }
+
+    function onWestCollapse() {
+        var opts = $('#LeftMenu').sidemenu('options');
+        if (opts.collapsed != 'collapse') {
+            $('#LeftMenu').sidemenu('collapse');
+            $('#LeftMenu').sidemenu('resize', {
+                width: 40
+            });
+        }
+    }
+
+    function onWestExpand() {
+        var opts = $('#LeftMenu').sidemenu('options');
+        if (opts.collapsed != 'expand') {
+            $('#LeftMenu').sidemenu('expand');
+            $('#LeftMenu').sidemenu('resize', {
+                width: 200
+            });
+        }
     }
 </script>

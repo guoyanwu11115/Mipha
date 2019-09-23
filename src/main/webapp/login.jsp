@@ -37,7 +37,7 @@
                 type:"post",
                 dataType:"json",
                 success:function (data) {
-                    alert(data.code+"|"+data.msg);
+                    //alert(data.code+"|"+data.msg);
                     if(0==data.code){
                         window.location.href="index.html";
                     }else{
@@ -84,7 +84,7 @@
 
 <body>
     <div>
-        <h2>Test Github Webhook  wangkf guoyandong</h2>
+        <h2>Test Github Webhook</h2>
         <form id="loginForm" method="post" action="">
             <fieldset>
                 <legend>login</legend>
