@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<excel id="quote" code="quote" name="批量报价导入test">
+    <!--1.列规格-->
+    <colgroup>
+        <col index="A" width="17em"></col>
+        <col index="B" width="17em"></col>
+        <col index="C" width="17em"></col>
+    </colgroup>
+    <!--2.标题-->
+    <title>
+        <tr height="16px">
+            <td rowspan="1" colspan="3" value="批量报价导入模板test"></td>
+        </tr>
+    </title>
+    <!--3.表头 列名-->
+    <thead>
+        <tr height="16px">
+            <th value="债券代码"></th>
+            <th value="买入净价"></th>
+            <th value="卖出净价"></th>
+            <th value="债券类别"></th>
+        </tr>
+    </thead>
+    <!--4.数据格式-->
+    <tbody>
+        <tr height="16px" firstrow="2" firstcol="0" repeat="500">
+            <td type="string" isnullable="false" maxlength="30"></td>
+            <td type="string" isnullable="false" maxlength="30"></td>
+            <td type="string" isnullable="false" maxlength="30"></td>
+            <td type="string" isnullable="false" maxlength="30"></td>
+            <!--<td type="numeric" format="###,##0.00" isnullable="false" maxlength="50"></td>-->
+            <!--<td type="numeric" format="###,##0.00" isnullable="false" maxlength="50"></td>-->
+            <!--<td type="enum" format=",地方债,进出口债" isnullable="true"></td>-->
+        </tr>
+    </tbody>
+</excel>

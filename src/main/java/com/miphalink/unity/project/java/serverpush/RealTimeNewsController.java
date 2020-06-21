@@ -26,6 +26,8 @@ public class RealTimeNewsController {
     String[] NEWSOFREN = new String[]{
             "重磅!任雯娟升任院长!" +
             "感人，任院长亲临灾区慰问受灾群众 ",
+            "感人，张校长亲临灾区慰问受灾群众 ",
+            "惊?北京市民张珺玮中奖1个亿！ ",
             "惊?太原市民任雯娟中奖1个亿！"};
 
     //创建线程池

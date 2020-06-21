@@ -17,7 +17,6 @@ import java.util.List;
 @Controller
 @RequestMapping("/")
 public class JsonController {
-
     @RequestMapping("studyJson")
     public void JavaAndJson(HttpServletRequest request, HttpServletResponse response) throws IOException {
         String type = request.getParameter("type");
@@ -51,14 +50,14 @@ public class JsonController {
         String jsonStr = request.getParameter("jsonStr");
         System.out.println("json字符串:"+jsonStr);
         if ("jsonObj2javaList".equals(type)) {
-                JSONArray json = JSONArray.fromObject(jsonStr);
-                List userList = (List)JSONArray.toCollection(json,Userinfo.class);
-                if(!userList.isEmpty()){
-                    for(Iterator itr = userList.iterator();itr.hasNext();){
-                        Userinfo user = (Userinfo)itr.next();
-                        System.out.println(user.toString());
-                    }
+            JSONArray json = JSONArray.fromObject(jsonStr);
+            List userList = (List) JSONArray.toCollection(json, Userinfo.class);
+            if (!userList.isEmpty()) {
+                for (Iterator itr = userList.iterator(); itr.hasNext(); ) {
+                    Userinfo user = (Userinfo) itr.next();
+                    System.out.println(user.toString());
                 }
+            }
         }
         //4 jsonObj >> javaObj
         if ("jsonObj2javaObj".equals(type)) {
