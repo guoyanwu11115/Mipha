@@ -10,7 +10,7 @@
 <!--    <modules>-->
 <!--        <module>Mipha</module>-->
 <!--    </modules>-->
-    <packaging>pom</packaging>
+    <packaging>war</packaging>
 
   <name>Mipha Maven Webapp</name>
   <!-- FIXME change it to the project's website -->

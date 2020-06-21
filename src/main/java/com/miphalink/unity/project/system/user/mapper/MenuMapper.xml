@@ -18,37 +18,19 @@
     <result column="remark" jdbcType="VARCHAR" property="remark" />
   </resultMap>
   <sql id="Base_Column_List">
-    menu_id, menu_name, parent_id, order_num, url, menu_type, visible, perms, icon, create_by,
+    menu_id, menu_name, parent_id, order_num, url, menu_type, visible, perms, icon, create_by, 
     create_time, update_by, update_time, remark
   </sql>
-  <select id="selectMenuNormalAll" resultMap="BaseResultMap">
-    select
-    <include refid="Base_Column_List" />
-    from sys_menu m where m.menu_type in ('M', 'C')
-    order by m.menu_id
-  </select>
-
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    delete from sys_menu
-    where menu_id = #{menuId,jdbcType=INTEGER}
-  </delete>
-
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    select
-    <include refid="Base_Column_List" />
-    from sys_menu
-    where menu_id = #{menuId,jdbcType=INTEGER}
-  </select>
   <insert id="insert" parameterType="com.miphalink.unity.project.system.user.domain.Menu">
-    insert into sys_menu (menu_id, menu_name, parent_id,
-      order_num, url, menu_type,
-      visible, perms, icon,
-      create_by, create_time, update_by,
+    insert into sys_menu (menu_id, menu_name, parent_id, 
+      order_num, url, menu_type, 
+      visible, perms, icon, 
+      create_by, create_time, update_by, 
       update_time, remark)
-    values (#{menuId,jdbcType=INTEGER}, #{menuName,jdbcType=VARCHAR}, #{parentId,jdbcType=INTEGER},
-      #{orderNum,jdbcType=INTEGER}, #{url,jdbcType=VARCHAR}, #{menuType,jdbcType=CHAR},
-      #{visible,jdbcType=CHAR}, #{perms,jdbcType=VARCHAR}, #{icon,jdbcType=VARCHAR},
-      #{createBy,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{updateBy,jdbcType=VARCHAR},
+    values (#{menuId,jdbcType=INTEGER}, #{menuName,jdbcType=VARCHAR}, #{parentId,jdbcType=INTEGER}, 
+      #{orderNum,jdbcType=INTEGER}, #{url,jdbcType=VARCHAR}, #{menuType,jdbcType=CHAR}, 
+      #{visible,jdbcType=CHAR}, #{perms,jdbcType=VARCHAR}, #{icon,jdbcType=VARCHAR}, 
+      #{createBy,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{updateBy,jdbcType=VARCHAR}, 
       #{updateTime,jdbcType=TIMESTAMP}, #{remark,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.miphalink.unity.project.system.user.domain.Menu">
@@ -204,4 +186,24 @@
       remark = #{remark,jdbcType=VARCHAR}
     where menu_id = #{menuId,jdbcType=INTEGER}
   </update>
+
+  <select id="selectMenuNormalAll" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from sys_menu m where m.menu_type in ('M', 'C')
+    order by m.menu_id
+  </select>
+
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from sys_menu
+    where menu_id = #{menuId,jdbcType=INTEGER}
+  </delete>
+
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from sys_menu
+    where menu_id = #{menuId,jdbcType=INTEGER}
+  </select>
+
 </mapper>
